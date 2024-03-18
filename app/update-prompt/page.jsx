@@ -55,17 +55,22 @@ const EditPrompt = () => {
         if(promptId) getPromptDetails();
     }, [promptId]);
     return (
-        <Suspense fallback={<Loading />}>
-            <Form
-                type="Edit"
-                post={post}
-                setPost={setPost}
-                submitting={submitting}
-                handleSubmit={updatePrompt}
-            />
-        </Suspense>
-        
+        <Form
+            type="Edit"
+            post={post}
+            setPost={setPost}
+            submitting={submitting}
+            handleSubmit={updatePrompt}
+        />
     );
 };
 
-export default EditPrompt;
+const EditPromptPage = () => {
+    return (
+        <Suspense fallback={<Loading />}>
+            <EditPrompt />
+        </Suspense>
+    )
+}
+export default EditPromptPage;
+
